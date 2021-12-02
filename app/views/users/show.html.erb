@@ -1,0 +1,16 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-7 mx-auto">
+      <div class="card">
+        <div class="card-body">
+        <%# ログインしている人の名前を取ってくる %>
+        <h5 class="card-title"><%= current_user.name %></h5>
+        <%# ログインしている人のアドレスを取ってくる %>
+        <h6 class="card-subtitle mb-2 text-muted"><%= current_user.email %></h6>
+        <%# 編集画面へ遷移。editアクションを作成する必要がある %>
+        <%= link_to 'ユーザー編集', edit_user_path %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
