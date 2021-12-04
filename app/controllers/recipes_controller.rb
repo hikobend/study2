@@ -1,5 +1,7 @@
 class RecipesController < ApplicationController
-  # 
+  # ログインしていない人のアクセスを制限する。ただしindexは除く
+  before_action :authenticate_user!, except: [:index]
+
   def index
     @recipes = Recipe.all 
   end
@@ -36,7 +38,7 @@ class RecipesController < ApplicationController
     # もしアップデートされたら
     if @recipe.update(recipe_params)
       # recipeの詳細画面に移動するようにする
-      redirect_to recipe_path(@recipe), notice: "投稿に成功しました。"
+      redirect_to recipe_path(@recipe), notice: "更新に成功しました。"
     else
       render :edit
     end
@@ -48,6 +50,7 @@ class RecipesController < ApplicationController
     recipe.destroy
     redirect_to recipes_path
   end
+  
   private
   def recipe_params
     params.require(:recipe).permit(:title, :body)

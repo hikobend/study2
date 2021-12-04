@@ -8,6 +8,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+      <script src="https://kit.fontawesome.com/484e6509e8.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -25,10 +26,10 @@
               <%= link_to 'マイページ', user_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-                <%= link_to '新規投稿', "#", class: "nav-link" %>
+                <%= link_to '新規投稿', new_recipe_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-                <%= link_to '投稿一覧', "#", class: "nav-link" %>
+                <%= link_to '投稿一覧', recipes_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link" %>

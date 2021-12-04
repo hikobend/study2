@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+
+  # ログインしていない人のアクセスを制限する。ただしindexは除く
+  before_action :authenticate_user!, except: [:index]
+
   def show
   end
   
